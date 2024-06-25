@@ -1,6 +1,6 @@
 // Code your design here
 
-
+//fsm for 1101 melay non overlapping
 module melaynon(input clk,reset,din,
                 output reg dout,
                 output reg[1:0] ns);
