@@ -1,40 +1,35 @@
-module fulladder (
-  input a,
-  input b,
-  input c,
-  output sum,
-  output cout
-);
-  assign sum = a ^ b ^ c;
-  assign cout = (a & b) | (b & c) | (a & c);
+module halfadd(input a,b,output sum,carry);
+
+assign sum = a ^ b;
+assign carry = a & b;
+
 endmodule
 
-module fulladder_tb;
 
-reg a,b,c;
-wire sum,cout;
+module halfadd_tb;
 
-fulladder fa(.a(a),.b(b),.c(c),.sum(sum),.cout(cout));
+reg a,b;
+wire sum,carry;
+
+halfadd dut(.a(a),.b(b),.sum(sum),.carry(carry));
 
 initial begin
+  
+  $monitor("time = %0t | a = %b | b = %b | sum = %b | carry = %b",$time,a,b,sum,carry);
 
-a=0; b=0; c=0; #2;
-a=0; b=0; c=1; #2;
-a=0; b=1; c=0; #2;
-a=0; b=1; c=1; #2;
-a=1; b=0; c=0; #2;
-a=1; b=0; c=1; #2;
-a=0; b=1; c=1; #2;
-a=1; b=1; c=1; #2;
-
+a=0; b=0;  #2;
+a=0; b=0;  #2;
+a=0; b=1;  #2;
+a=0; b=1;  #2;
+a=1; b=0;  #2;
+a=1; b=0;  #2;
+a=0; b=1;  #2;
+a=1; b=1;  #2;
 
 end
-
-  always@(a,b) begin
-$display("time=%0t a=%b b=%b sum=%b cout=%b",$time,a,b,sum,cout);
-  end
   initial begin
-    $dumpfile("fulladder.vcd");
-    $dumpvars(0,fulladder_tb);
+    $dumpfile("halfadd.vcd");
+    $dumpvars(1,halfadd_tb);
   end
+  
 endmodule
