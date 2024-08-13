@@ -1,5 +1,0 @@
-module multi2x1(input sel,input i1,i2,output y);
-
-assign y= sel ? i1 :i0;
-endmodule
-
