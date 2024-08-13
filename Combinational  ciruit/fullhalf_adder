@@ -1,0 +1,10 @@
+module fulladdder(input a,b,c,output sum, carry);
+
+wire x,y,z;
+
+halffulladd h1(.a(a),.b(b),.sum(x),.carry(y));
+halffulladd h2(.a(x),.c(c),.sum(sum),.carry(z));
+
+assign carry = y | z;
+
+endmodule

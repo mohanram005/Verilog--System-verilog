@@ -1,0 +1,44 @@
+
+module case_cond (
+  input a, b, c, d,
+  input [1:0] sel,
+  output reg out
+);
+
+always @(a or b or c or d or sel) begin
+  case (sel)
+    2'h0: out = a;
+    2'h1: out = b;
+    2'h2: out = c;
+    2'h3: out = d;
+    default: $display("invalid");
+  endcase
+end
+
+endmodule
+
+
+
+//Test bench ,wave form error
+module case_tb;
+
+reg a,b,c,d,sel;
+wire out;
+
+case_cond cs(.a(a),.b(b),.c(c),.d(d),.sel(sel),.out(out));
+
+initial begin
+
+	sel=2'b00; #10;
+	sel=2'b01; #10;
+	sel=2'b10; #10;
+	sel=2'b11; #10;
+	a=0; #10;
+	b=1; #10;
+	c=0; #10;
+	d=0; #10;
+	
+
+end 
+
+endmodule
