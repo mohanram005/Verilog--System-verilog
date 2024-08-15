@@ -1,0 +1,36 @@
+ virtual class parent_trans;
+  bit [31:0] data;
+  int id;
+  
+   virtual function void display();// this method calls the child class direcly
+    this.data = data;
+    $display("Base: Value of data = %0d, id = %0d", data, id);
+  endfunction
+endclass
+
+class child_trans extends parent_trans;
+  
+  
+  function void display(); // base virtual methed is automaticaly assigned to all function
+    $display("Child: Value of data = %0d, id = %0d", data, id);
+  endfunction
+endclass
+
+module class_example;
+  initial begin
+    parent_trans p_tr;
+    child_trans c_tr;
+    c_tr = new();
+    c_tr.data = 5;
+    c_tr.id   = 2;
+    
+    
+    p_tr = c_tr; // c_tr object  is assigned tp p_tr;
+    
+    p_tr.data = 10;
+    p_tr.id   = 4;
+    
+    p_tr.display();
+    
+  end
+endmodule
