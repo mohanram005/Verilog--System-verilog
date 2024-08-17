@@ -9,6 +9,10 @@ class transaction;
   constraint scale_c{if(low == scale) value <50;
                      else value >= 50;
                     }
+  //   //constraint scale_C{if(low == scale) value<50;
+//                      else if(mid == scale) value >= 50;
+//                      else value >=100;
+//                     }
   
 endclass
 
