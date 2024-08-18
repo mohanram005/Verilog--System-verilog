@@ -27,7 +27,7 @@ module sample;
     tr.rand_mode(1);
     $display("enableing randomization value1 = %0d,value2 = %0d",tr.value_1,tr.value_2);
     
-    tr.value2.randmode(0); //seperate disable rand_mode
+    tr.value_2.rand_mode(0); //seperate disable rand_mode
     $display("after value2 disable randomization value1 = %0d,value2 = %0d",tr.value_1,tr.value_2);
     
     $display("seperate rand mode randomization value1 = %0d,value2 = %0d",tr.value_1.rand_mode(),tr.value_2.rand_mode());
