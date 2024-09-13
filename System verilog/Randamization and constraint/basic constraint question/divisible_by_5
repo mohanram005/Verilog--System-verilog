@@ -1,0 +1,29 @@
+class div_5;
+  
+  rand bit [6:0] a; // bit [6:0] to accommodate values from 10 to 100
+  
+  constraint c1 { 
+    a inside {[10:100]}; // Ensure a is in the range 10 to 100
+    is_divisible_by_5(a);
+  }
+  
+  function bit is_divisible_by_5(bit [6:0] value);
+    return (value % 5 == 0);
+  endfunction
+  
+endclass
+
+module top;
+  div_5 c_h;
+  initial begin
+    c_h = new();
+    
+    repeat(6) begin
+      if (c_h.randomize()) begin
+        $display("divisible by 5: %0d", c_h.a);
+      end else begin
+        $display("Randomization failed");
+      end
+    end
+  end
+endmodule
