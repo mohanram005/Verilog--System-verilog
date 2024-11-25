@@ -2,6 +2,7 @@
 // // or browse Examples
 
 
+// in waveform read operation is down on next clock address correctly
 module dual_port_tb;
   
   reg clk,rst,we_a,we_b;
