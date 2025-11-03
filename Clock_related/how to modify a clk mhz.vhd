@@ -12,3 +12,50 @@ begin
         end if;
     end if;
 end process;
+Each toggle happens every 25 cycles → full period = 50 cycles
+So:
+
+𝑓
+𝑠
+𝑎
+𝑚
+𝑝
+𝑙
+𝑒
+=
+𝑓
+𝑠
+𝑦
+𝑠
+2
+×
+25
+=
+50
+𝑀
+𝐻
+𝑧
+50
+=
+1
+𝑀
+𝐻
+𝑧
+f
+sample
+	​
+
+=
+2×25
+f
+sys
+	​
+
+	​
+
+=
+50
+50MHz
+	​
+
+=1MHz
